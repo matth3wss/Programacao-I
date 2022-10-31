@@ -1,0 +1,105 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch contaTest",
+            "request": "launch",
+            "mainClass": "Aula_5.contaTest",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ClasseTeste",
+            "request": "launch",
+            "mainClass": "ClasseTeste",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch teste",
+            "request": "launch",
+            "mainClass": "teste",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex1",
+            "request": "launch",
+            "mainClass": "ex1",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex10",
+            "request": "launch",
+            "mainClass": "ex10",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex2",
+            "request": "launch",
+            "mainClass": "ex2",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex3",
+            "request": "launch",
+            "mainClass": "ex3",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex4",
+            "request": "launch",
+            "mainClass": "ex4",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex5",
+            "request": "launch",
+            "mainClass": "ex5",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex6",
+            "request": "launch",
+            "mainClass": "ex6",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex7",
+            "request": "launch",
+            "mainClass": "ex7",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex8",
+            "request": "launch",
+            "mainClass": "ex8",
+            "projectName": "Programação I_2603627e"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex9",
+            "request": "launch",
+            "mainClass": "ex9",
+            "projectName": "Programação I_2603627e"
+        }
+    ]
+}
