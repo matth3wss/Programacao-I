@@ -1,4 +1,3 @@
-package Aula_4.Atividade_2;
 import java.util.ArrayList;
 import java.util.Scanner;
 

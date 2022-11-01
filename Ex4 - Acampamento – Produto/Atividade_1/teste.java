@@ -1,5 +1,3 @@
-package Aula_4.Atividade_1;
-
 import java.util.Scanner;
 
 public class teste {

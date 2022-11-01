@@ -24,6 +24,7 @@ public class ex8 {
         }
         System.out.println("\n" + maior);
         System.out.println(menor);
+        sc.close();
     }
         
 }

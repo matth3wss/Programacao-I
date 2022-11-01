@@ -34,5 +34,7 @@ class test {
     System.out.println("Valor do desconto: "+p2.oferecerDesconto(cidade));
     Apolice.exibeUltimoNum();
 
+    sc.close();
+
     }
 }

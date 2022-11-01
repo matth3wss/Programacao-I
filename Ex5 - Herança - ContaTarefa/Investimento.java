@@ -1,10 +1,10 @@
-public class Investimento extends Conta{
+public class Investimento extends Conta {
     protected double taxaRendimento;
 
     Investimento() {
     }
 
-    Investimento(String nome, int numero, double saldo, double taxaRendimento){
+    Investimento(String nome, int numero, double saldo, double taxaRendimento) {
         super(nome, numero, saldo);
         this.setTaxaRendimento(taxaRendimento);
     }
@@ -15,17 +15,17 @@ public class Investimento extends Conta{
     }
 
     @Override
-    public void resumoExtrato(){
+    public void resumoExtrato() {
         super.resumoExtrato();
         System.out.println("% de rendimento: " + this.getTaxaRendimento());
         System.out.println();
     }
 
-    public void setTaxaRendimento(double taxaRendimento){
+    public void setTaxaRendimento(double taxaRendimento) {
         this.taxaRendimento = taxaRendimento;
     }
 
-    public double getTaxaRendimento(){
+    public double getTaxaRendimento() {
         return this.taxaRendimento;
     }
 }

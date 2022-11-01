@@ -1,4 +1,3 @@
-package Aula_4.Atividade_2;
 public class Produto {
     private String nome;
     private double valor;

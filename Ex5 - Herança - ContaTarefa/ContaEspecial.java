@@ -5,10 +5,10 @@ public class ContaEspecial extends Conta {
     ContaEspecial() {
     }
 
-    ContaEspecial(String nome, int numero, double saldo, double limite, double taxaManutencao){
+    ContaEspecial(String nome, int numero, double saldo, double limite, double taxaManutencao) {
         super(nome, numero, saldo);
-            this.setLimite(limite);
-            this.setTaxaManutencao(taxaManutencao);
+        this.setLimite(limite);
+        this.setTaxaManutencao(taxaManutencao);
     }
 
     @Override
@@ -16,11 +16,14 @@ public class ContaEspecial extends Conta {
         double aux;
         if (super.sacar(valor) == true) {
             super.sacar(valor);
+            super.extrato.add(new Movimentacao(valor,'D'));
             this.fazManutencao();
             return true;
         } else if (super.getSaldo() + this.limite >= valor) {
             super.sacar(aux = super.getSaldo());
             this.sacarLimite(valor - aux);
+            super.extrato.add(new Movimentacao(valor,'D'));
+            this.fazManutencao();
             return true;
         } else {
             System.out.println("Crédito insuficiente");
@@ -36,18 +39,19 @@ public class ContaEspecial extends Conta {
             this.setLimite(this.getLimite() - valor);
             return true;
         }
-    }  
+    }
 
     @Override
     public void fazManutencao() {
         super.setSaldo(super.getSaldo() - this.getTaxaManutencao());
+        super.extrato.add(new Movimentacao(super.getSaldo() - this.getTaxaManutencao(),'M'));
     }
-    
+
     @Override
     public void resumoExtrato() {
         super.resumoExtrato();
-        System.out.println("Limite: " + limite);
-        System.out.println("Taxa de Manutenção: " + taxaManutencao);
+        System.out.println("Limite: " + this.getLimite());
+        System.out.println("Taxa de Manutenção: " + this.getTaxaManutencao());
     }
 
     public void setLimite(double limite) {
@@ -64,5 +68,5 @@ public class ContaEspecial extends Conta {
 
     public double getTaxaManutencao() {
         return this.taxaManutencao;
-    }    
+    }
 }
