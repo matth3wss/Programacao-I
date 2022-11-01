@@ -16,13 +16,13 @@ public class ContaEspecial extends Conta {
         double aux;
         if (super.sacar(valor) == true) {
             super.sacar(valor);
-            super.extrato.add(new Movimentacao(valor,'D'));
+            super.extrato.add(new Movimentacao(valor, 'D'));
             this.fazManutencao();
             return true;
         } else if (super.getSaldo() + this.limite >= valor) {
             super.sacar(aux = super.getSaldo());
             this.sacarLimite(valor - aux);
-            super.extrato.add(new Movimentacao(valor,'D'));
+            super.extrato.add(new Movimentacao(valor, 'D'));
             this.fazManutencao();
             return true;
         } else {
@@ -44,7 +44,7 @@ public class ContaEspecial extends Conta {
     @Override
     public void fazManutencao() {
         super.setSaldo(super.getSaldo() - this.getTaxaManutencao());
-        super.extrato.add(new Movimentacao(super.getSaldo() - this.getTaxaManutencao(),'M'));
+        super.extrato.add(new Movimentacao(super.getSaldo() - this.getTaxaManutencao(), 'M'));
     }
 
     @Override

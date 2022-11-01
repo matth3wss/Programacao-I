@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ClasseTeste {
 
-    public static int menu(){
+    public static int menu() {
         Scanner sc = new Scanner(System.in);
         int op;
 
@@ -12,18 +12,19 @@ public class ClasseTeste {
         System.out.println("(3) - Remover unidades ");
         System.out.println("(4) - Adicionar unidades");
         System.out.println("(9) - Sair");
-        op=sc.nextInt();
+        op = sc.nextInt();
         System.out.println("");
 
         return op;
     }
-    public static void main (String[] args) {
+
+    public static void main(String[] args) {
 
         String nome;
         Float valor;
-        int qtde, cod, op=0;
+        int qtde, cod, op = 0;
 
-        ArrayList<Produto> estoque = new ArrayList <Produto>();
+        ArrayList<Produto> estoque = new ArrayList<Produto>();
         Scanner sc = new Scanner(System.in);
 
         Produto t = new Produto("Matheus", 89.5, 8);
@@ -34,8 +35,8 @@ public class ClasseTeste {
         estoque.add(t1);
         estoque.add(t2);
 
-        while(op!=9){
-            op=menu();
+        while (op != 9) {
+            op = menu();
 
             switch (op) {
                 case 1:
@@ -52,33 +53,33 @@ public class ClasseTeste {
 
                 case 2:
                     System.out.print("Código produto: ");
-                    cod=sc.nextInt();
+                    cod = sc.nextInt();
                     System.out.print("\n" + estoque.get(cod).toString() + "\n");
                     break;
                 case 3:
                     System.out.print("Código produto: ");
-                    cod=sc.nextInt();
+                    cod = sc.nextInt();
 
                     System.out.print("Qtde a ser removida: ");
                     qtde = sc.nextInt();
 
-                    if(estoque.get(cod).verificarDisponibilidade(qtde)==true){
+                    if (estoque.get(cod).verificarDisponibilidade(qtde) == true) {
                         estoque.get(cod).removerUnidades(qtde);
                         System.out.println("Remoção bem-sucedida");
-                    }else{
+                    } else {
                         System.out.println("Remoção mal-sucedida");
                     }
                     break;
                 case 4:
                     System.out.print("Código produto: ");
-                    cod=sc.nextInt();
+                    cod = sc.nextInt();
 
                     System.out.print("Qtde a ser adicionada: ");
                     qtde = sc.nextInt();
                     estoque.get(cod).adicionarUnidades(qtde);
                     break;
 
-                default: 
+                default:
                     System.out.println("Opção Inválida\n");
             }
         }

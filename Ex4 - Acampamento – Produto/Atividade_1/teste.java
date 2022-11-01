@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class teste {
     public static Acampamento[] p = new Acampamento[10];
-    public static void main (String[] args) {
+
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        for(int i=0; i<p.length; i++) {
+        for (int i = 0; i < p.length; i++) {
             String nome = sc.nextLine();
             int idade = sc.nextInt();
             sc.nextLine();
@@ -16,9 +17,9 @@ public class teste {
         }
         sc.close();
 
-        for (int i=0; i<p.length; i++) {
+        for (int i = 0; i < p.length; i++) {
             System.out.println(p[i].toString());
         }
     }
-        
+
 }

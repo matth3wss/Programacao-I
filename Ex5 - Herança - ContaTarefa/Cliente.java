@@ -3,7 +3,6 @@ public class Cliente {
     private String cpf;
     public Conta conta;
 
-
     Cliente(String nome, String cpf) {
         this.setNome(nome);
         this.setCpf(cpf);
