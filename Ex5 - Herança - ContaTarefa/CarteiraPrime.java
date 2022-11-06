@@ -4,7 +4,7 @@ public class CarteiraPrime extends Cliente {
 
     private ArrayList<Cliente> clientesPrime = new ArrayList<Cliente>();
 
-    public void adicionarCliente(Cliente cliente) {
+    public void adicionar(Cliente cliente) {
         clientesPrime.add(cliente);
     }
 

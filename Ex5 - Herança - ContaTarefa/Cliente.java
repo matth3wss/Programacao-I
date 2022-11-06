@@ -3,6 +3,14 @@ public class Cliente {
     private String cpf;
     public Conta conta;
 
+    Cliente() {
+    }
+
+    Cliente(String nome, String cpf) {
+        this.setNome(nome);
+        this.setCpf(cpf);
+    }
+
     public void setConta(Conta conta) {
         this.conta = conta;
     }

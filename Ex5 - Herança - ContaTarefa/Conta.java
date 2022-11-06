@@ -29,13 +29,17 @@ public abstract class Conta {
             return true;
         }
         System.out.println();
+
+        for (int i = 0; i <= extrato.size(); i++) {
+        }
+
         return false;
     }
 
     public abstract void fazManutencao();
 
     public void resumoExtrato() {
-        System.out.println();
+        System.out.println("Nome: " + cliente.getNome());
         System.out.println("Saldo: " + this.saldo);
 
         for (Movimentacao movimentacao : extrato) {
@@ -67,7 +71,7 @@ public abstract class Conta {
         return this.cliente;
     }
 
-    public ArrayList<Movimentacao> getMovimentacoes(){
+    public ArrayList<Movimentacao> getMovimentacoes() {
         return extrato;
     }
 }
