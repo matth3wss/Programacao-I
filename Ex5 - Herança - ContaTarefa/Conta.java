@@ -1,20 +1,14 @@
 import java.util.ArrayList;
 
 public abstract class Conta {
-    protected String nome;
     protected int numero;
     protected double saldo;
     public Cliente cliente;
+    protected ArrayList<Movimentacao> extrato = new ArrayList<Movimentacao>();
 
-    ArrayList<Movimentacao> extrato = new ArrayList<Movimentacao>();
-
-    Conta() {
-    }
-
-    Conta(String nome, int numero, double saldo) {
+    Conta(int numero, double saldo) {
         this.setNumero(numero);
         this.setSaldo(saldo);
-        this.setNome(nome);
     }
 
     void depositar(double valor) {
@@ -42,8 +36,8 @@ public abstract class Conta {
 
     public void resumoExtrato() {
         System.out.println();
-        System.out.println("Nome: " + this.nome);
         System.out.println("Saldo: " + this.saldo);
+
         for (Movimentacao movimentacao : extrato) {
             System.out.println(movimentacao.toString());
         }
@@ -65,11 +59,15 @@ public abstract class Conta {
         return this.saldo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public String getNome() {
-        return this.nome;
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
+    public ArrayList<Movimentacao> getMovimentacoes(){
+        return extrato;
     }
 }

@@ -2,11 +2,8 @@ public class ContaEspecial extends Conta {
     protected double limite;
     protected double taxaManutencao;
 
-    ContaEspecial() {
-    }
-
-    ContaEspecial(String nome, int numero, double saldo, double limite, double taxaManutencao) {
-        super(nome, numero, saldo);
+    ContaEspecial(int numero, double saldo, double limite, double taxaManutencao) {
+        super(numero, saldo);
         this.setLimite(limite);
         this.setTaxaManutencao(taxaManutencao);
     }

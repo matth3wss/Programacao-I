@@ -1,20 +1,14 @@
-public class Cliente extends Conta {
+public class Cliente {
     private String nome;
     private String cpf;
     public Conta conta;
-    public CarteiraPrime carteiraPrime;
 
-    Cliente() {
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 
-    Cliente(String nome, int numero, double saldo, String cpf) {
-        super(nome, numero, saldo);
-        this.setCpf(cpf);
-    }
-
-    @Override
-    public void fazManutencao() {
-        // TODO Auto-generated method stub
+    public Conta getConta() {
+        return this.conta;
     }
 
     public void setNome(String nome) {
@@ -34,8 +28,6 @@ public class Cliente extends Conta {
     }
 
     public String toString() {
-        return "Nome: " + this.getNome() + "\nNúmero: " + this.getNumero() + "\nSaldo: " + this.getSaldo() + "\nCPF: "
-                + this.getCpf() + "\n";
+        return "Nome: " + this.getNome() + "\nCPF: " + this.getCpf() + "\n";
     }
-
 }

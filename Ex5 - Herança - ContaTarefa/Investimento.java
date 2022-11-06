@@ -1,17 +1,16 @@
 public class Investimento extends Conta {
     protected double taxaRendimento;
 
-    Investimento() {
-    }
-
-    Investimento(String nome, int numero, double saldo, double taxaRendimento) {
-        super(nome, numero, saldo);
+    Investimento(int numero, double saldo, double taxaRendimento) {
+        super(numero, saldo);
         this.setTaxaRendimento(taxaRendimento);
     }
 
     @Override
     public void fazManutencao() {
         this.setSaldo(super.getSaldo() + super.getSaldo() * this.taxaRendimento);
+
+        super.extrato.add(new Movimentacao(super.getSaldo() * this.taxaRendimento, 'C'));
     }
 
     @Override
