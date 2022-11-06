@@ -21,6 +21,7 @@ public abstract class Conta {
         if (valor > 0) {
             this.saldo += valor;
             this.extrato.add(new Movimentacao(valor, 'C'));
+
         } else {
             System.out.println("Valor inválido");
         }
