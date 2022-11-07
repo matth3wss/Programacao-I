@@ -5,7 +5,6 @@ public class Teste {
         contaEspecial.setCliente(Matheus);
         Matheus.setConta(contaEspecial);
 
-     
         // Instanciando um cliente e uma conta investimento
         Cliente Nicolas = new Cliente("Nicolas", "013.728.919-78");
         Investimento contaInvestimento = new Investimento(002, 1113, 0.15);
@@ -14,28 +13,28 @@ public class Teste {
 
         // TESTE CONTA ESPECIAL
         System.out.print("Teste de conta especial:");
-        // contaEspecial.resumoExtrato();
+        contaEspecial.resumoExtrato();
 
         contaEspecial.sacar(1000);
-        // contaEspecial.resumoExtrato();
+        contaEspecial.resumoExtrato();
 
         contaEspecial.sacar(490);
-        // contaEspecial.resumoExtrato();
+        contaEspecial.resumoExtrato();
 
         contaEspecial.sacar(50);
         contaEspecial.resumoExtrato();
 
         System.out.println("\nTeste de conta investimento:");
-        // contaInvestimento.resumoExtrato();
+        contaInvestimento.resumoExtrato();
 
         contaInvestimento.sacar(500);
-        // contaInvestimento.resumoExtrato();
-        
+        contaInvestimento.resumoExtrato();
+
         contaInvestimento.depositar(250);
-        // contaInvestimento.resumoExtrato();
+        contaInvestimento.resumoExtrato();
 
         contaInvestimento.sacar(1000);
-        // contaInvestimento.resumoExtrato();
+        contaInvestimento.resumoExtrato();
 
         contaInvestimento.fazManutencaoSaldo();
         contaInvestimento.resumoExtrato();
