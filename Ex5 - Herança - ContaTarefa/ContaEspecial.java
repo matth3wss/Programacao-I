@@ -10,18 +10,21 @@ public class ContaEspecial extends Conta {
 
     @Override
     public boolean sacar(double valor) {
-        double aux;
         if (super.sacar(valor) == true) {
-            super.sacar(valor);
+            super.setSaldo(super.getSaldo() - valor);
             super.extrato.add(new Movimentacao(valor, 'D'));
-            this.fazManutencao();
+            if(super.getSaldo()<this.getLimite()){
+                this.fazManutencaoCredito();
+            }else{
+                this.fazManutencaoSaldo();
+            }
             return true;
 
         } else if (super.getSaldo() + this.limite >= valor) {
-            super.sacar(aux = super.getSaldo());
-            this.sacarLimite(valor - aux);
+            super.setSaldo(super.getSaldo() - super.getSaldo());
+            this.sacarLimite(this.getLimite() - valor);
             super.extrato.add(new Movimentacao(valor, 'D'));
-            this.fazManutencao();
+            this.fazManutencaoCredito();
             return true;
 
         } else {
@@ -41,9 +44,16 @@ public class ContaEspecial extends Conta {
     }
 
     @Override
-    public void fazManutencao() {
+    public void fazManutencaoSaldo() {
         super.setSaldo(super.getSaldo() - this.getTaxaManutencao());
         super.extrato.add(new Movimentacao(this.getTaxaManutencao(), 'M'));
+    }
+
+    @Override
+    public void fazManutencaoCredito() {
+        this.setLimite(this.getLimite() - this.getTaxaManutencao());
+        super.extrato.add(new Movimentacao(this.getTaxaManutencao(), 'M'));
+
     }
 
     @Override
@@ -51,10 +61,7 @@ public class ContaEspecial extends Conta {
         super.resumoExtrato();
         System.out.println("Limite: " + this.getLimite());
         System.out.println("Taxa de Manutenção: " + this.getTaxaManutencao());
-        System.out.println("|================================================================|");
-        for (Movimentacao movimentacao : super.getMovimentacoes()) {
-            System.out.println(movimentacao.toString());
-        }
+        super.extrato();
     }
 
     public void setLimite(double limite) {

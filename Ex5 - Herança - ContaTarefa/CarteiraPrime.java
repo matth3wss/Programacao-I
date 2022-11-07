@@ -9,8 +9,11 @@ public class CarteiraPrime extends Cliente {
     }
 
     public void listarPrime() {
-        for (Cliente clientes : clientesPrime) {
-            clientes.toString();
+        for (Cliente cliente : clientesPrime) {
+            System.out.println("\nNome: " + cliente.getNome());
+            System.out.println("CPF: " + cliente.getCpf());
+            System.out.println("Saldo: " + String.format("%.2f", cliente.getConta().getSaldo()));
+            System.out.println("Número da conta: " + cliente.getConta().getNumero());
         }
     }
 }

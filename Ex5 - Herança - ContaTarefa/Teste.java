@@ -13,15 +13,38 @@ public class Teste {
         Nicolas.setConta(contaInvestimento);
 
         // TESTE CONTA ESPECIAL
-        // System.out.println("Teste de conta especial:");
+        System.out.print("Teste de conta especial:");
         // contaEspecial.resumoExtrato();
 
-        // System.out.println("\nTeste de conta especial:");
+        contaEspecial.sacar(1000);
+        // contaEspecial.resumoExtrato();
+
+        contaEspecial.sacar(490);
+        // contaEspecial.resumoExtrato();
+
+        contaEspecial.sacar(50);
+        contaEspecial.resumoExtrato();
+
+        System.out.println("\nTeste de conta investimento:");
         // contaInvestimento.resumoExtrato();
 
-        // System.out.println("\nSaque de R$ 500,00 na conta de " + contaEspecial.getCliente().getNome());
-        contaEspecial.sacar(500);
-        contaEspecial.resumoExtrato();
+        contaInvestimento.sacar(500);
+        // contaInvestimento.resumoExtrato();
         
+        contaInvestimento.depositar(250);
+        // contaInvestimento.resumoExtrato();
+
+        contaInvestimento.sacar(1000);
+        // contaInvestimento.resumoExtrato();
+
+        contaInvestimento.fazManutencaoSaldo();
+        contaInvestimento.resumoExtrato();
+
+        // ADICIONANDO A CARTEIRA PRIME
+        CarteiraPrime clientesPrime = new CarteiraPrime();
+        clientesPrime.adicionar(Matheus);
+        clientesPrime.adicionar(Nicolas);
+        clientesPrime.listarPrime();
+
     }
 }

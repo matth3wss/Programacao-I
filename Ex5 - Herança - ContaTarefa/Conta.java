@@ -24,18 +24,25 @@ public abstract class Conta {
 
     public boolean sacar(double valor) {
         if (this.saldo >= valor && valor > 0) {
-            this.saldo -= valor;
             return true;
         }
         System.out.println();
         return false;
     }
 
-    public abstract void fazManutencao();
+    public abstract void fazManutencaoSaldo();
+
+    public abstract void fazManutencaoCredito();
 
     public void resumoExtrato() {
         System.out.println("Nome: " + cliente.getNome());
-        System.out.println("Saldo: " + this.saldo);
+        System.out.println("Saldo: " + this.getSaldo());
+    }
+
+    public void extrato(){
+        for (Movimentacao movimentacao : getMovimentacoes()) {
+            System.out.println(movimentacao.toString());
+        }
     }
 
     public void setNumero(int numero) {

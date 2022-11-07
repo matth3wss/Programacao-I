@@ -22,7 +22,7 @@ public class Movimentacao {
     }
 
     public String toString() {
-        return "Data: " + this.getData() + "\nValor: " + this.getValor() + "\nTipo: " + this.getTipo() + "\n";
+        return "\nData: " + this.getData() + "\nValor: " + this.getValor() + "\nTipo: " + this.getTipo();
     }
 
     public String getData() {

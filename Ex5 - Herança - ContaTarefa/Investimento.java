@@ -7,9 +7,12 @@ public class Investimento extends Conta {
     }
 
     @Override
-    public void fazManutencao() {
-        this.setSaldo(super.getSaldo() + super.getSaldo() * this.taxaRendimento);
+    public void fazManutencaoCredito() {
+    }
 
+    @Override
+    public void fazManutencaoSaldo() {
+        this.setSaldo(super.getSaldo() + super.getSaldo() * this.taxaRendimento);
         super.extrato.add(new Movimentacao(super.getSaldo() * this.taxaRendimento, 'C'));
     }
 
@@ -18,6 +21,7 @@ public class Investimento extends Conta {
         super.resumoExtrato();
         System.out.println("% de rendimento: " + this.getTaxaRendimento());
         System.out.println();
+        super.extrato();
     }
 
     public void setTaxaRendimento(double taxaRendimento) {
