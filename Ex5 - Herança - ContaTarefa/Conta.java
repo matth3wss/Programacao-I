@@ -29,10 +29,6 @@ public abstract class Conta {
             return true;
         }
         System.out.println();
-
-        for (int i = 0; i <= extrato.size(); i++) {
-        }
-
         return false;
     }
 
