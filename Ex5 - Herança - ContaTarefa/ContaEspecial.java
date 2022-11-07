@@ -16,12 +16,14 @@ public class ContaEspecial extends Conta {
             super.extrato.add(new Movimentacao(valor, 'D'));
             this.fazManutencao();
             return true;
+
         } else if (super.getSaldo() + this.limite >= valor) {
             super.sacar(aux = super.getSaldo());
             this.sacarLimite(valor - aux);
             super.extrato.add(new Movimentacao(valor, 'D'));
             this.fazManutencao();
             return true;
+
         } else {
             System.out.println("Crédito insuficiente");
         }
@@ -41,7 +43,7 @@ public class ContaEspecial extends Conta {
     @Override
     public void fazManutencao() {
         super.setSaldo(super.getSaldo() - this.getTaxaManutencao());
-        super.extrato.add(new Movimentacao(super.getSaldo() - this.getTaxaManutencao(), 'M'));
+        super.extrato.add(new Movimentacao(this.getTaxaManutencao(), 'M'));
     }
 
     @Override
@@ -49,6 +51,10 @@ public class ContaEspecial extends Conta {
         super.resumoExtrato();
         System.out.println("Limite: " + this.getLimite());
         System.out.println("Taxa de Manutenção: " + this.getTaxaManutencao());
+        System.out.println("|================================================================|");
+        for (Movimentacao movimentacao : super.getMovimentacoes()) {
+            System.out.println(movimentacao.toString());
+        }
     }
 
     public void setLimite(double limite) {

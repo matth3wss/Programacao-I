@@ -25,7 +25,6 @@ public abstract class Conta {
     public boolean sacar(double valor) {
         if (this.saldo >= valor && valor > 0) {
             this.saldo -= valor;
-            this.extrato.add(new Movimentacao(valor, 'D'));
             return true;
         }
         System.out.println();
@@ -37,10 +36,6 @@ public abstract class Conta {
     public void resumoExtrato() {
         System.out.println("Nome: " + cliente.getNome());
         System.out.println("Saldo: " + this.saldo);
-
-        for (Movimentacao movimentacao : extrato) {
-            System.out.println(movimentacao.toString());
-        }
     }
 
     public void setNumero(int numero) {

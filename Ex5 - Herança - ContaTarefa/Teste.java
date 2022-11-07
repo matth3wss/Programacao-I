@@ -12,8 +12,6 @@ public class Teste {
         contaInvestimento.setCliente(Nicolas);
         Nicolas.setConta(contaInvestimento);
 
-        System.out.println("--------------------------------------------------");
-
         // TESTE CONTA ESPECIAL
         // System.out.println("Teste de conta especial:");
         // contaEspecial.resumoExtrato();
@@ -21,7 +19,7 @@ public class Teste {
         // System.out.println("\nTeste de conta especial:");
         // contaInvestimento.resumoExtrato();
 
-        System.out.println("\nSaque de R$ 500,00 na conta de " + contaEspecial.getCliente().getNome());
+        // System.out.println("\nSaque de R$ 500,00 na conta de " + contaEspecial.getCliente().getNome());
         contaEspecial.sacar(500);
         contaEspecial.resumoExtrato();
         
