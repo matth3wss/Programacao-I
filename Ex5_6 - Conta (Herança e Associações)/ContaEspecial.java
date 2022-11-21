@@ -13,9 +13,9 @@ public class ContaEspecial extends Conta {
         if (super.sacar(valor) == true) {
             super.setSaldo(super.getSaldo() - valor);
             super.extrato.add(new Movimentacao(valor, 'D'));
-            if(super.getSaldo()<this.getLimite()){
+            if (super.getSaldo() < this.getTaxaManutencao()) {
                 this.fazManutencaoCredito();
-            }else{
+            } else {
                 this.fazManutencaoSaldo();
             }
             return true;
@@ -60,7 +60,7 @@ public class ContaEspecial extends Conta {
     public void resumoExtrato() {
         super.resumoExtrato();
         System.out.println("Limite: " + this.getLimite());
-        System.out.println("Taxa de Manutenção: " + this.getTaxaManutencao());
+        System.out.println("Taxa de Manutenção: " + this.getTaxaManutencao() + "\n");
         super.extrato();
     }
 

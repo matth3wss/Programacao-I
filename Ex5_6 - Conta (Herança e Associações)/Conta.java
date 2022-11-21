@@ -26,7 +26,6 @@ public abstract class Conta {
         if (this.saldo >= valor && valor > 0) {
             return true;
         }
-        System.out.println();
         return false;
     }
 
@@ -39,7 +38,7 @@ public abstract class Conta {
         System.out.println("Saldo: " + this.getSaldo());
     }
 
-    public void extrato(){
+    public void extrato() {
         for (Movimentacao movimentacao : getMovimentacoes()) {
             System.out.println(movimentacao.toString());
         }
