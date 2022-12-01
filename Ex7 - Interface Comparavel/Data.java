@@ -1,8 +1,7 @@
-public class Data implements Comparavel{
+public class Data implements Comparavel {
     private int dia;
     private int mes;
     private int ano;
-
 
     Data(int dia, int mes, int ano) {
         this.dia = dia;
@@ -10,27 +9,59 @@ public class Data implements Comparavel{
         this.ano = ano;
     }
 
-    public String getDataFormatada(){
+    public String getDataFormatada() {
         return this.dia + "/" + this.mes + "/" + this.ano;
     }
 
     @Override
     public boolean igual(Comparavel obj) {
-        Data a = (Data) obj;
+        Data data = (Data) obj;
 
-        
-
-        // if()
-        return false;
-    }
-
-    @Override
-    public boolean maior(Comparavel obj) {
+        if (this.dia == data.dia) {
+            if (this.mes == data.mes) {
+                if (this.ano == data.ano) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public boolean menor(Comparavel obj) {
+        Data data = (Data) obj;
+
+        if (this.ano < data.ano) {
+            return true;
+        }
+
+        if ((this.ano == data.ano) && (this.mes < data.mes)) {
+            return true;
+        }
+        if ((this.dia < data.dia) && (this.mes == data.mes) && (this.ano == data.ano)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean maior(Comparavel obj) {
+        Data data = (Data) obj;
+
+        if (this.ano > data.ano){
+            return true;
+        }
+        
+        if ((this.ano == data.ano) && (this.mes > data.mes)) {
+            return true;
+        }
+
+        if ((this.dia > data.dia) && (this.mes == data.mes) && (this.ano == data.ano)) {
+            return true;
+        }
+
+
         return false;
     }
 
@@ -57,9 +88,5 @@ public class Data implements Comparavel{
     public void setAno(int ano) {
         this.ano = ano;
     }
-
-
-
-
 
 }
