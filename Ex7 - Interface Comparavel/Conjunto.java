@@ -3,7 +3,8 @@ public class Conjunto implements Comparavel {
     private int elemento2;
 
     Conjunto(int elemento1, int elemento2) {
-
+        this.elemento1 = elemento1;
+        this.elemento2 = elemento2;
     }
 
     public int soma() {

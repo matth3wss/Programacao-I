@@ -49,10 +49,10 @@ public class Data implements Comparavel {
     public boolean maior(Comparavel obj) {
         Data data = (Data) obj;
 
-        if (this.ano > data.ano){
+        if (this.ano > data.ano) {
             return true;
         }
-        
+
         if ((this.ano == data.ano) && (this.mes > data.mes)) {
             return true;
         }
@@ -60,7 +60,6 @@ public class Data implements Comparavel {
         if ((this.dia > data.dia) && (this.mes == data.mes) && (this.ano == data.ano)) {
             return true;
         }
-
 
         return false;
     }
