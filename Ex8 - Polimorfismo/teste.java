@@ -3,7 +3,16 @@ public class teste {
         Menu op = new Menu();
 
         while(op.menu()!=9){
-            op.menu(); 
+            op.menu();
+            switch(op.menu()){
+                case 1:
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.println();
             continue;
 
         }

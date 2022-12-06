@@ -1,20 +1,34 @@
 import java.util.Date;
+
 public class Post {
     private String title;
     private Date date;
     private String content;
     private int likes;
     private int dislikes;
-    
-    public void show(){
 
+    Post(String title, Date date, String content, int likes, int dislikes) {
+        this.title = title;
+        this.date = date;
+        this.content = content;
+        this.likes = likes;
+        this.dislikes = dislikes;
     }
 
-    public void like(){
-
+    public void show() {
+        System.out.println(this.title);
+        System.out.println(this.date);
+        System.out.println(this.content);
+        System.out.println(this.likes);
+        System.out.println(this.dislikes);
     }
 
-    public void dislike(){
+    public void like() {
+        this.likes += 1;
+    }
+
+    public void dislike() {
+        this.dislikes += 1;
 
     }
 
