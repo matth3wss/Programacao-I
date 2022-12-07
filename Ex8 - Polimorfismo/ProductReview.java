@@ -1,24 +1,23 @@
-import java.util.Date;
-public class ProductReview extends Post implements Evaluate {
+public class ProductReview extends Post implements Evaluable {
     private String brand;
     private int stars;
-
-    ProductReview(String title, Date date, String content, int likes, int dislikes, String brand, int stars){
-        super(title, date, content, likes, dislikes);
-        this.brand = brand;
-        this.stars = stars;
-    }
 
     @Override
     public void show() {
         super.show();
-        System.out.println(this.brand);
-        System.out.println(this.stars);
+        System.out.println("Marca: " + this.brand);
+        System.out.println("Estrelas: " + this.stars);
     }
 
     @Override
     public void evaluate(int value) {
-        this.stars = value;
+        if(value >= 1 && value <= 10){
+            this.stars = value;
+        }
+        else{
+            System.out.println("Valor Invalido, avalie entre 1 a 10 estrelas");
+        }
+        
     }
 
     public String getBrand() {

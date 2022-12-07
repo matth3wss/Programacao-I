@@ -18,6 +18,7 @@ public class Conjunto implements Comparavel {
     @Override
     public boolean igual(Comparavel obj) {
         Conjunto conjunto = (Conjunto) obj;
+        
         if (this.soma() == conjunto.soma()) {
             return true;
         }

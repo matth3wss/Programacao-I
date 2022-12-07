@@ -1,4 +1,4 @@
-public interface Evaluate {
+public interface Evaluable {
 
     public void evaluate(int value);
 

@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Post {
     private String title;
@@ -7,28 +8,23 @@ public class Post {
     private int likes;
     private int dislikes;
 
-    Post(String title, Date date, String content, int likes, int dislikes) {
-        this.title = title;
-        this.date = date;
-        this.content = content;
-        this.likes = likes;
-        this.dislikes = dislikes;
-    }
-
     public void show() {
-        System.out.println(this.title);
-        System.out.println(this.date);
-        System.out.println(this.content);
-        System.out.println(this.likes);
-        System.out.println(this.dislikes);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+        System.out.println("Título: " + this.title);
+        System.out.println("Data: " + formatter.format(this.date));
+        System.out.println("Conteúdo: " + this.content);
+        System.out.println("Likes: " + this.likes);
+        System.out.println("Dislikes: " + this.dislikes);
     }
 
     public void like() {
-        this.likes += 1;
+        this.likes++;
     }
 
     public void dislike() {
-        this.dislikes += 1;
+        this.dislikes++;
 
     }
 
@@ -44,8 +40,8 @@ public class Post {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate() {
+        this.date = new Date();
     }
 
     public String getContent() {

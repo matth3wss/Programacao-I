@@ -1,12 +1,10 @@
 import java.util.Scanner;
 
 public class Menu {
-    public int menu() {
-        Scanner sc = new Scanner(System.in);
+    public int menu(Scanner sc) {
         int op;
 
-        System.out.println("BLOG: O que você quer fazer?\n");
-
+        System.out.println("BLOG: O que você quer fazer?");
         System.out.println("(1) - Novo post de noticia.");
         System.out.println("(2) - Nova resenha de produto.");
         System.out.println("(3) - Novo post de outros assuntos.");
@@ -17,7 +15,6 @@ public class Menu {
         System.out.print("Escolha a opção: ");
         op = sc.nextInt();
         System.out.println("");
-        return op;
-        
+        return op;   
     }
 }
