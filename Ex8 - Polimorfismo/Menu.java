@@ -15,6 +15,6 @@ public class Menu {
         System.out.print("Escolha a opção: ");
         op = sc.nextInt();
         System.out.println("");
-        return op;   
+        return op;
     }
 }

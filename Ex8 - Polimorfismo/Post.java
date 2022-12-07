@@ -25,7 +25,6 @@ public class Post {
 
     public void dislike() {
         this.dislikes++;
-
     }
 
     public String getTitle() {
@@ -67,5 +66,4 @@ public class Post {
     public void setDislikes(int dislikes) {
         this.dislikes = dislikes;
     }
-
 }

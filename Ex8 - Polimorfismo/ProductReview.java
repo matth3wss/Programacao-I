@@ -11,13 +11,11 @@ public class ProductReview extends Post implements Evaluable {
 
     @Override
     public void evaluate(int value) {
-        if(value >= 1 && value <= 10){
+        if (value >= 1 && value <= 10) {
             this.stars = value;
+        } else {
+            System.out.println("Valor inválido, avalie entre 1 a 10 estrelas");
         }
-        else{
-            System.out.println("Valor Invalido, avalie entre 1 a 10 estrelas");
-        }
-        
     }
 
     public String getBrand() {
