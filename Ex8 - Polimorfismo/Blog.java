@@ -37,13 +37,11 @@ public class Blog {
         Scanner sc = new Scanner(System.in);
         Menu op = new Menu();
         Blog blog = new Blog();
-        int teste = 0;
+        int menu = 0;
 
-        while (teste != 10) {
-            teste = op.menu(sc);
-
-            switch (teste) {
-
+        while (menu != 10) {
+            menu = op.menu(sc);
+            switch (menu) {
                 case 1:
                     News news = new News();
                     Post postNews = news;
@@ -63,13 +61,14 @@ public class Blog {
                     blog.readData(genericPost, sc);
                     blog.posts.add(genericPost);
                     break;
+
                 case 4:
                     blog.showAll();
                     break;
 
                 case 5:
                     if (blog.posts.isEmpty()) {
-                        System.out.println("Nenhum post foi realizado");
+                        System.out.println("Nenhum post foi realizado!\n");
                         break;
                     } else {
                         System.out.println("Digite o indice do post: ");
@@ -84,12 +83,11 @@ public class Blog {
                             System.out.println("Postagem curtida\n");
                         }
                     }
-
                     break;
 
                 case 6:
                     if (blog.posts.isEmpty()) {
-                        System.out.println("Nenhum post foi realizado");
+                        System.out.println("Nenhum post foi realizado!\n");
                         break;
                     } else {
                         System.out.println("Digite o indice do post: ");
@@ -104,14 +102,13 @@ public class Blog {
                             System.out.println("Postagem não curtida\n");
                         }
                     }
-
+                case 10:
+                    System.out.println("Desligando sistema...");
+                    break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção inválida!\n");
                     continue;
-
             }
-
         }
     }
-
 }
