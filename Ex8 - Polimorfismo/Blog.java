@@ -74,13 +74,12 @@ public class Blog {
                         System.out.println("Digite o indice do post: ");
                         int index = sc.nextInt();
                         sc.nextLine();
-
-                        if (index < 1 && index >= blog.posts.size()) {
-                            System.out.println("Codigo inválido, postagem não encontrada");
-
-                        } else {
+                        try {
                             blog.posts.get(index).like();
                             System.out.println("Postagem curtida\n");
+
+                        } catch (IndexOutOfBoundsException e) {
+                            System.out.println("Indice fora dos limites do ArrayList");
                         }
                     }
                     break;
@@ -93,13 +92,12 @@ public class Blog {
                         System.out.println("Digite o indice do post: ");
                         int index = sc.nextInt();
                         sc.nextLine();
-
-                        if (index < 1 && index >= blog.posts.size()) {
-                            System.out.println("Codigo inválido, postagem não encontrada");
-
-                        } else {
+                        try {
                             blog.posts.get(index).dislike();
                             System.out.println("Postagem não curtida\n");
+
+                        } catch (IndexOutOfBoundsException e) {
+                            System.out.println("Indice fora dos limites do ArrayList");
                         }
                     }
                 case 10:
