@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Blog {
@@ -12,23 +13,31 @@ public class Blog {
                 post.show();
     }
 
-    public void readData(Post post, Scanner sc) {
+    public void readData(Post newPost, Scanner sc) {
         sc.nextLine();
-        System.out.println("Título do post: ");
-        post.setTitle(sc.nextLine());
-        System.out.println("Conteúdo do post: ");
-        post.setContent((sc.nextLine()));
-        post.setDate();
 
-        if (post instanceof News) {
+        System.out.println("Título do post: ");
+        newPost.setTitle(sc.nextLine());
+
+        for (Post p : posts) {
+            if (newPost.getTitle().equals(p.getTitle())) {
+                throw new RuntimeException("Titulo já cadastrado");
+            }
+        }
+
+        System.out.println("Conteúdo do post: ");
+        newPost.setContent((sc.nextLine()));
+        newPost.setDate();
+
+        if (newPost instanceof News) {
             System.out.println("Fonte: ");
-            ((News) post).setSource(sc.nextLine());
-        } else if (post instanceof ProductReview) {
+            ((News) newPost).setSource(sc.nextLine());
+        } else if (newPost instanceof ProductReview) {
             System.out.println("Marca do produto: ");
-            ((ProductReview) post).setBrand(sc.nextLine());
+            ((ProductReview) newPost).setBrand(sc.nextLine());
 
             System.out.println("Avalição do produto, 1 a 10 estrelas: ");
-            ((ProductReview) post).evaluate(sc.nextInt());
+            ((ProductReview) newPost).evaluate(sc.nextInt());
         }
         System.out.println();
     }
@@ -39,74 +48,82 @@ public class Blog {
         Blog blog = new Blog();
         int menu = 0;
 
-        while (menu != 10) {
-            menu = op.menu(sc);
-            switch (menu) {
-                case 1:
-                    News news = new News();
-                    Post postNews = news;
-                    blog.readData(postNews, sc);
-                    blog.posts.add(postNews);
-                    break;
-
-                case 2:
-                    ProductReview productReview = new ProductReview();
-                    Post postProductReview = productReview;
-                    blog.readData(postProductReview, sc);
-                    blog.posts.add(postProductReview);
-                    break;
-
-                case 3:
-                    Post genericPost = new Post();
-                    blog.readData(genericPost, sc);
-                    blog.posts.add(genericPost);
-                    break;
-
-                case 4:
-                    blog.showAll();
-                    break;
-
-                case 5:
-                    if (blog.posts.isEmpty()) {
-                        System.out.println("Nenhum post foi realizado!\n");
+        do {
+            try {
+                menu = op.menu(sc);
+                switch (menu) {
+                    case 1:
+                        News news = new News();
+                        Post postNews = news;
+                        blog.readData(postNews, sc);
+                        blog.posts.add(postNews);
                         break;
-                    } else {
-                        System.out.println("Digite o indice do post: ");
-                        int index = sc.nextInt();
-                        sc.nextLine();
-                        try {
-                            blog.posts.get(index).like();
-                            System.out.println("Postagem curtida\n");
 
-                        } catch (IndexOutOfBoundsException e) {
-                            System.out.println("Indice fora dos limites do ArrayList");
-                        }
-                    }
-                    break;
-
-                case 6:
-                    if (blog.posts.isEmpty()) {
-                        System.out.println("Nenhum post foi realizado!\n");
+                    case 2:
+                        ProductReview productReview = new ProductReview();
+                        Post postProductReview = productReview;
+                        blog.readData(postProductReview, sc);
+                        blog.posts.add(postProductReview);
                         break;
-                    } else {
-                        System.out.println("Digite o indice do post: ");
-                        int index = sc.nextInt();
-                        sc.nextLine();
-                        try {
-                            blog.posts.get(index).dislike();
-                            System.out.println("Postagem não curtida\n");
 
-                        } catch (IndexOutOfBoundsException e) {
-                            System.out.println("Indice fora dos limites do ArrayList");
+                    case 3:
+                        Post genericPost = new Post();
+                        blog.readData(genericPost, sc);
+                        blog.posts.add(genericPost);
+                        break;
+
+                    case 4:
+                        blog.showAll();
+                        break;
+
+                    case 5:
+                        if (blog.posts.isEmpty()) {
+                            System.out.println("Nenhum post foi realizado!\n");
+                            break;
+                        } else {
+                            System.out.println("Digite o indice do post: ");
+                            int index = sc.nextInt();
+                            sc.nextLine();
+                            try {
+                                blog.posts.get(index).like();
+                                System.out.println("Postagem curtida\n");
+
+                            } catch (IndexOutOfBoundsException e) {
+                                System.out.println("Indice fora dos limites do ArrayList");
+                            } catch (InputMismatchException e) {
+                                System.out.println("Valor do indice deve ser um número inteiro");
+                            }
                         }
-                    }
-                case 10:
-                    System.out.println("Desligando sistema...");
-                    break;
-                default:
-                    System.out.println("Opção inválida!\n");
-                    continue;
+                        break;
+
+                    case 6:
+                        if (blog.posts.isEmpty()) {
+                            System.out.println("Nenhum post foi realizado!\n");
+                            break;
+                        } else {
+                            System.out.println("Digite o indice do post: ");
+                            int index = sc.nextInt();
+                            sc.nextLine();
+                            try {
+                                blog.posts.get(index).dislike();
+                                System.out.println("Postagem não curtida\n");
+
+                            } catch (IndexOutOfBoundsException e) {
+                                System.out.println("Indice fora dos limites do ArrayList");
+                            } catch (InputMismatchException e) {
+                                System.out.println("Valor do indice deve ser um número inteiro");
+                            }
+                        }
+                    case 10:
+                        System.out.println("Desligando sistema...");
+                        break;
+                    default:
+                        System.out.println("Opção inválida!\n");
+                        continue;
+                }
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
             }
-        }
+        } while (menu != 10);
     }
 }
