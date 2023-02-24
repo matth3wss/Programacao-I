@@ -5,14 +5,8 @@
 package Telas;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import java.sql.*;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
